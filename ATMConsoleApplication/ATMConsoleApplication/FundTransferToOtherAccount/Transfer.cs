@@ -10,7 +10,8 @@ namespace ATMConsoleApplication.FundTransferToOtherAccount
 {
     public static class Transfer
     {
-        static CustomersInformation recipient = new CustomersInformation();
+        private static CustomersInformation _recipient = new CustomersInformation();
+        
         public static void FundTransfer(CustomersInformation sender)
         {
             try
@@ -18,15 +19,15 @@ namespace ATMConsoleApplication.FundTransferToOtherAccount
                 Console.WriteLine("Please input the recipient's account number below");
                 int inputValue = Convert.ToInt32(Console.ReadLine());
 
-                recipient = CustomersInformationList.NewCustomer._customer.FirstOrDefault(acctNum => acctNum.AccountNumber == inputValue);
+                _recipient = CustomersInformationList.NewCustomer._customer.FirstOrDefault(acctNum => acctNum.AccountNumber == inputValue);
 
-                if (recipient == null)
+                if (_recipient == null)
                 {
                     Console.WriteLine("Account not found. Please check the account number and try again.");
                     return;
                 }
 
-                Console.WriteLine($"The recipient account name is {recipient.FirstName} {recipient.LastName}");
+                Console.WriteLine($"The recipient account name is {_recipient.FirstName} {_recipient.LastName}");
 
                 Console.WriteLine("Please input the transfer amount below");
                 double transferAmount = Convert.ToDouble(Console.ReadLine());
@@ -38,7 +39,7 @@ namespace ATMConsoleApplication.FundTransferToOtherAccount
                     sender.AccountBalance -= transferAmount;
 
                     // the recipient has been credited
-                    recipient.AccountBalance += transferAmount;
+                    _recipient.AccountBalance += transferAmount;
                     Console.WriteLine("Transaction successful.");
 
                 }

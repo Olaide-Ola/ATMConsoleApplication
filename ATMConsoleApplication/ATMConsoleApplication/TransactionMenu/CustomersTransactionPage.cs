@@ -44,22 +44,22 @@ namespace ATMConsoleApplication.TransactionMenu
                         {
                             case 1:
                                 DepositFund.CreditAccount(validCustomer);
-                                PresEnter();
+                                PressEnter();
                                 ClearBelowLine(promptLine);
                                 break;
                             case 2:
                                 Withdrawals.Withdraw(validCustomer);
-                                PresEnter();
+                                PressEnter();
                                 ClearBelowLine(promptLine);
                                 break;
                             case 3:
                                 AccountBalance.ShowBalance(validCustomer);
-                                PresEnter();
+                                PressEnter();
                                 ClearBelowLine(promptLine);
                                 break;
                             case 4:
                                 Transfer.FundTransfer(validCustomer);
-                                PresEnter();
+                                PressEnter();
                                 ClearBelowLine(promptLine);
                                 break;
                             case 5:
@@ -79,7 +79,7 @@ namespace ATMConsoleApplication.TransactionMenu
                 
             }
         }
-        private static void PresEnter()
+        private static void PressEnter()
         {
             Console.WriteLine("Press Enter key to return to the menu");
             Console.ReadKey();

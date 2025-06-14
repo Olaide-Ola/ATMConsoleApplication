@@ -11,7 +11,7 @@ namespace ATMConsoleApplication
             Console.WriteLine("\nWelcome to Console Bank ATM");
             Console.WriteLine("\nPlease select an option:");
             Console.WriteLine("1. New Customer");
-            Console.WriteLine("2. Existing Customer");
+            Console.WriteLine("2. Exiting Customer");
             Console.WriteLine("Enter your choice (1 or 2): ");
 
             do

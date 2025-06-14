@@ -14,7 +14,7 @@ A C# console-based ATM(Auto Teller Machine) simulation that allows users to perf
 ## Installation
 1. Clone the repository
 ``` bash
-git clone https://github.com/Olaide-Ola/C-Sharp-BackEnd
+git clone https://github.com/Olaide-Ola/ATMConsoleApplication.git
 ```
 2. Navigate to the project directory
 ``` bash
