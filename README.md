@@ -1,6 +1,6 @@
 # ATM Console Application
 ## Description
-A C# console-based ATM(Auto Teller Machine) simulation that allows users to perform basic banking operations such as withdrawal, transfer, deposit, and balance check through a console interface and exiting the system.
+A C# console-based ATM(Auto Teller Machine) simulation that allows users to perform basic banking operations such as withdrawal, transfer, deposit, and balance enquiry through a console interface and exiting the system.
 ## Features
 - Account authentication: Secure login with account number and pin
 - Balance inquiry

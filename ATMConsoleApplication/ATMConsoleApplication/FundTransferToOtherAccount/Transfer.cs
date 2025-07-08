@@ -11,7 +11,7 @@ namespace ATMConsoleApplication.FundTransferToOtherAccount
     public static class Transfer
     {
         private static CustomersInformation _recipient = new CustomersInformation();
-        
+
         public static void FundTransfer(CustomersInformation sender)
         {
             try

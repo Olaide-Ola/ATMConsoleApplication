@@ -14,9 +14,9 @@ namespace ATMConsoleApplication.LoginValidation
         private static CustomersInformation _accountNumberValidation = new CustomersInformation();
         private static CustomersInformation _accountPinValidation = new CustomersInformation();
 
-       
-        public static CustomersInformation AccountNumberValidation { get { return _accountNumberValidation; }  }
-        public static  CustomersInformation AccountPinValidation { get { return _accountPinValidation; } }
+
+        public static CustomersInformation AccountNumberValidation { get { return _accountNumberValidation; } }
+        public static CustomersInformation AccountPinValidation { get { return _accountPinValidation; } }
         public static bool LoginCredentials()
         {
             Message.UserWelcomeMessage();
@@ -60,7 +60,7 @@ namespace ATMConsoleApplication.LoginValidation
 
                                 else
                                 {
-                                    Console.WriteLine("Invalid details. Please try again.");
+                                    Console.WriteLine("Invalid account pin. Please try again.");
 
                                 }
                             }
@@ -75,7 +75,7 @@ namespace ATMConsoleApplication.LoginValidation
 
                     else
                     {
-                        Console.WriteLine("Invalid details. Please try again");
+                        Console.WriteLine("Invalid account number. Please try again");
 
                     }
                 }
