@@ -9,19 +9,19 @@ namespace ATMConsoleApplication.AccountWithdrawals
 {
     public static class Withdrawals
     {
-        public static void Withdraw(CustomersInformation accountBalance)
+        public static void Withdraw(Customer customer)
         {
             try
             {
                 Console.WriteLine("Please input the amount to withdraw below");
                 double withdrawalAmount = Convert.ToDouble(Console.ReadLine());
 
-                if (accountBalance.AccountBalance >= withdrawalAmount && withdrawalAmount > 0)
+                if (customer.AccountBalance >= withdrawalAmount && withdrawalAmount > 0)
                 {
-                    accountBalance.AccountBalance -= withdrawalAmount;
+                    customer.AccountBalance -= withdrawalAmount;
                     Console.WriteLine("Transaction suceesful. You have successfully debit your account with {0}", withdrawalAmount);
                 }
-                else if(accountBalance.AccountBalance < withdrawalAmount)
+                else if(customer.AccountBalance < withdrawalAmount)
                 {
                     Console.WriteLine("Insufficient balance");
                 }

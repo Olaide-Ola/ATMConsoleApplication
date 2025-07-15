@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace ATMConsoleApplication.CustomersDataSet
 {
-    public class CustomersInformation
+    public class Customer
     {
-        private string _firstName = "";
-        private string _lastName = "";
+        private string _firstName = string.Empty;
+        private string _lastName = string.Empty;
         private int _accountNumber;
         private int _accountPin;
         private double _accountBalance;
-
         public string FirstName { get { return _firstName; } set{ _firstName = value; } }
         public string LastName { get { return _lastName; } set { _lastName = value; } }
         public int AccountNumber { get { return _accountNumber; } set { _accountNumber = value; } }
@@ -21,27 +20,12 @@ namespace ATMConsoleApplication.CustomersDataSet
         public double AccountBalance { get { return _accountBalance; } set { _accountBalance = value; } } 
         
     }
-    public class CustomersInformationList
+    public static class Clients
     {
-        private static CustomersInformationList? _newCustomer = null;
-        public List<CustomersInformation> _customer = new List<CustomersInformation>();
-        public static CustomersInformationList NewCustomer
+        public static List<Customer> _customer = new List<Customer>()
         {
-            get
-            {
-                if (_newCustomer == null)
-                {
-                    _newCustomer = new CustomersInformationList();
-                }
-                return _newCustomer;
-            }
-        }
-        private CustomersInformationList()
-        {
-            _customer.Add(new CustomersInformation { FirstName = "Ogunbunmi", LastName = "Olaide", AccountNumber = 310189, AccountPin = 1996, AccountBalance = 25000 });
-            _customer.Add(new CustomersInformation { FirstName = "Olawale", LastName = "Moshood", AccountNumber = 310310, AccountPin = 1998, AccountBalance = 1000 });
-        }
-        
-
+            new Customer(){FirstName = "Ogunbunmi", LastName = "Olaide", AccountNumber = 310189, AccountPin = 1996, AccountBalance = 25000},
+            new Customer(){ FirstName = "Olawale", LastName = "Moshood", AccountNumber = 310310, AccountPin = 1998, AccountBalance = 1000 }
+        };
     }
 }

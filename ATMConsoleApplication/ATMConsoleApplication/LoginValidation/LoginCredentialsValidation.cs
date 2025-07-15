@@ -11,31 +11,21 @@ namespace ATMConsoleApplication.LoginValidation
 {
     public class LoginCredentialsValidation
     {
-        private static CustomersInformation _accountNumberValidation = new CustomersInformation();
-        private static CustomersInformation _accountPinValidation = new CustomersInformation();
-
-
-        public static CustomersInformation AccountNumberValidation { get { return _accountNumberValidation; } }
-        public static CustomersInformation AccountPinValidation { get { return _accountPinValidation; } }
+        public static Customer Customer { get; set; }
         public static bool LoginCredentials()
-        {
+        {          
             Message.UserWelcomeMessage();
-
             bool loginCheck = false;
-
             while (!loginCheck)
             {
                 Console.WriteLine("Enter your account number below: ");
                 try
                 {
                     //promt user to enter their registered account number
-                    int userAccountNumber = Convert.ToInt32(Console.ReadLine());
-
-                    var customer = CustomersInformationList.NewCustomer._customer.FirstOrDefault(acctNum => acctNum.AccountNumber == userAccountNumber);
-
+                    int userAccountNumber = Convert.ToInt32(Console.ReadLine());        
+                   var customer = Clients._customer.FirstOrDefault(acctNum => acctNum.AccountNumber == userAccountNumber);
                     if (customer != null)
                     {
-
                         do
                         {
                             try
@@ -43,21 +33,15 @@ namespace ATMConsoleApplication.LoginValidation
                                 Message.AccountPinMessage();
                                 //promt user to enter thier registerd account pin if account number entered is valid
                                 int userAccountPin = Convert.ToInt32(Console.ReadLine());
-
-                                //_accountPinValidation = CustomersInformationList.NewCustomer._customer.FirstOrDefault(acctPin => acctPin.AccountPin == userAccountPin);
-
                                 if (customer.AccountPin == userAccountPin)
                                 {
-                                    _accountNumberValidation = customer;
-                                    _accountPinValidation = customer;
-
+                                    Customer = customer;
                                     Console.WriteLine("\nLogin suceesfully! Press Enter Key to proceed into your account...\n");
                                     Console.ReadKey();
                                     Console.Clear();
-                                    Console.WriteLine("Welcome, " + customer.FirstName.ToUpper() + " " + customer.LastName.ToUpper());
+                                    Console.WriteLine("Welcome, " + Customer.FirstName.ToUpper() + " " + Customer.LastName.ToUpper());
                                     break;
                                 }
-
                                 else
                                 {
                                     Console.WriteLine("Invalid account pin. Please try again.");

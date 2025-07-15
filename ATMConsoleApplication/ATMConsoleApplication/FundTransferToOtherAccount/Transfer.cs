@@ -10,40 +10,39 @@ namespace ATMConsoleApplication.FundTransferToOtherAccount
 {
     public static class Transfer
     {
-        private static CustomersInformation _recipient = new CustomersInformation();
-
-        public static void FundTransfer(CustomersInformation sender)
+        //public static Customer Recipient { get; set; }
+        public static void FundTransfer(Customer customer)
         {
             try
             {
                 Console.WriteLine("Please input the recipient's account number below");
                 int inputValue = Convert.ToInt32(Console.ReadLine());
 
-                _recipient = CustomersInformationList.NewCustomer._customer.FirstOrDefault(acctNum => acctNum.AccountNumber == inputValue);
+                Customer? Recipient = Clients._customer.FirstOrDefault(acctNum => acctNum.AccountNumber == inputValue);
 
-                if (_recipient == null)
+                if (Recipient == null)
                 {
                     Console.WriteLine("Account not found. Please check the account number and try again.");
                     return;
                 }
 
-                Console.WriteLine($"The recipient account name is {_recipient.FirstName} {_recipient.LastName}");
+                Console.WriteLine($"The recipient account name is {Recipient.FirstName} {Recipient.LastName}");
 
                 Console.WriteLine("Please input the transfer amount below");
                 double transferAmount = Convert.ToDouble(Console.ReadLine());
 
 
-                if (sender.AccountBalance >= transferAmount && transferAmount > 0)
+                if (customer.AccountBalance >= transferAmount && transferAmount > 0)
                 {
                     //amount to transfer has been debited from the sender's account
-                    sender.AccountBalance -= transferAmount;
+                    customer.AccountBalance -= transferAmount;
 
                     // the recipient has been credited
-                    _recipient.AccountBalance += transferAmount;
+                    Recipient.AccountBalance += transferAmount;
                     Console.WriteLine("Transaction successful.");
 
                 }
-                else if (sender.AccountBalance < transferAmount)
+                else if (customer.AccountBalance < transferAmount)
                 {
                     Console.WriteLine("Insufficient balance.");
                 }

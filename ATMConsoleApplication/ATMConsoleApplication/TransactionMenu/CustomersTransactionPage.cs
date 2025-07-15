@@ -19,8 +19,7 @@ namespace ATMConsoleApplication.TransactionMenu
         {
             if (LoginCredentialsValidation.LoginCredentials())
             {
-                CustomersInformation validCustomer = LoginCredentialsValidation.AccountNumberValidation;
-
+                Customer validCustomer = LoginCredentialsValidation.Customer;
                 Console.WriteLine("\nTransaction Main Menu.");
                 Console.WriteLine("=======================");
                 Console.WriteLine();
